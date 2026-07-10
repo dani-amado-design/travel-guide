@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Denise & Gino's Euro Trip</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="dg-style.css">
+</head>
+<body>
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>ALL-TERRAIN EURO ROUTE · FRANKFURT — MANNHEIM — GAGGENAU — BERN — MUNICH — FREILASSING — BERLIN — HAMBURG — FRANKFURT · </span>
+    <span>ALL-TERRAIN EURO ROUTE · FRANKFURT — MANNHEIM — GAGGENAU — BERN — MUNICH — FREILASSING — BERLIN — HAMBURG — FRANKFURT · </span>
+  </div>
+</div>
+<header class="app-header">
+  <div class="header-inner">
+    <h1>Denise &amp; Gino's Euro Trip</h1>
+    <p class="subtitle" id="subtitle">Frankfurt to Switzerland and back — Germany, deep dive</p>
+  </div>
+</header>
+
+<div class="tabs-sentinel" id="tabsSentinel"></div>
+<nav class="tabs" role="tablist" aria-label="Views" id="tabsNav">
+  <button class="tab active" data-view="today" role="tab" aria-selected="true">Today</button>
+  <button class="tab" data-view="timeline" role="tab" aria-selected="false">Route</button>
+  <button class="tab" data-view="alerts" role="tab" aria-selected="false">Alerts <span class="tab-badge" id="alertCount"></span></button>
+  <button class="tab" data-view="tips" role="tab" aria-selected="false">Country Tips</button>
+  <button class="tab" data-view="totals" role="tab" aria-selected="false">Totals</button>
+</nav>
+
+<main>
+  <section id="view-today" class="view active">
+    <div class="today-header">
+      <h2 id="todayHeading">Today</h2>
+      <div class="preview-toggle">
+        <button type="button" id="previewBtn" class="preview-btn">📅 Preview a different day</button>
+        <input type="date" id="previewDate" class="preview-input-hidden" aria-hidden="true" tabindex="-1">
+        <button type="button" id="previewResetBtn" class="preview-reset" hidden>Back to today</button>
+      </div>
+    </div>
+    <div id="todayStatus" class="today-status"></div>
+
+    <h3 class="section-label">Today's Schedule</h3>
+    <div id="todaySchedule" class="timeline"></div>
+
+    <h3 class="section-label">Tips for <span id="todayCityName">—</span></h3>
+    <div id="todayTips" class="tips-list"></div>
+
+    <h3 class="section-label">Alerts</h3>
+    <div id="todayAlerts" class="alerts-list"></div>
+  </section>
+
+  <section id="view-timeline" class="view">
+    <div class="filter-bar">
+      <div class="filter-group" id="typeFilters" aria-label="Filter by type"></div>
+      <select id="destFilter" aria-label="Filter by destination">
+        <option value="">All destinations</option>
+      </select>
+    </div>
+    <div id="timeline" class="timeline"></div>
+    <p id="emptyState" class="empty-state" hidden>Nothing here yet for this filter — try another type or destination.</p>
+  </section>
+
+  <section id="view-alerts" class="view">
+    <h2>Payments &amp; Deadlines</h2>
+    <div id="alertsList" class="alerts-list"></div>
+    <h2 class="section-spacer">Shared Costs</h2>
+    <p class="hint">Some stays were billed as a shared "All" total across both couples rather than split per person — flagged below.</p>
+    <div id="sharedList" class="baggage-list"></div>
+  </section>
+
+  <section id="view-tips" class="view">
+    <h2>Country Tips</h2>
+    <div id="tipsList" class="tips-list"></div>
+  </section>
+
+  <section id="view-totals" class="view">
+    <h2>Cost Totals</h2>
+    <div id="totalsList" class="totals-list"></div>
+    <p class="hint">Totals reflect Gino &amp; Denise's tracked costs in AUD — shared "All" charges are noted but not split automatically.</p>
+  </section>
+</main>
+
+<footer class="app-footer">
+  <p>Built for Denise &amp; Gino · works offline as a local file or hosted on GitHub Pages</p>
+</footer>
+
+<script src="dg-script.js"></script>
+</body>
+</html>
